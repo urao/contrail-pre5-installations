@@ -14,8 +14,8 @@ mkdir -p $HOME/jsons
 7. Deploy Contrail
 ```
 cd $HOME/images
-tar -zxvf contrail-cloud-docker_4.1.0.0-8-newton_xenial.tgz
-dpkg -i contrail-server-manager-installer_4.1.0.0-8_xenial.deb
+tar -zxvf contrail-cloud-docker_<version>-<openstack_version>_xenial.tgz
+dpkg -i contrail-server-manager-installer_<version>_xenial.deb
 mv /etc/apt/sources.list /tmp/
 touch /etc/apt/sources.list
 apt-get update
