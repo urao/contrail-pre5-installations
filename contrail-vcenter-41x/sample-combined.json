@@ -1,0 +1,186 @@
+{
+    "cluster": [{
+            "id": "vcenter_cluster",
+            "parameters": {
+                "provision": {
+                    "contrail_4": {
+                        "cloud_orchestrator": "vcenter",
+                        "vcenter_servers": [
+                        {
+                            "10.26.254.22": {
+                                "datacenters": {
+                                    "Lab": {
+                                        "datacenter_mtu": 1500, 
+                                        "dv_switches": [
+                                            {
+                                                "clusternames": [
+                                                    "Lab"
+                                                ], 
+                                                "dv_port_group": {
+                                                    "dv_portgroup_name": "dv-portgroup", 
+                                                    "number_of_ports": "3"
+                                                }, 
+                                                "dv_switch_name": "dvs-switch" 
+                                            }
+                                        ]
+                                    }
+                                }, 
+                                "hostname": "10.26.254.22", 
+                                "password": "<password>", 
+                                "username": "administrator@vsphere.local", 
+                                "validate_certs": false
+                            }
+                        }]
+                }
+            }
+        }
+    }
+    ],
+    "server": [{
+            "cluster_id": "vcenter_cluster",
+            "contrail": {},
+            "domain": "local.lab",
+            "host_name": "node08",
+            "id": "node08",
+            "network": {
+                "interfaces": [{
+                    "default_gateway": "10.26.253.1",
+                    "dhcp": false,
+                    "ip_address": "10.26.253.13/24",
+                    "mac_address": "80:c1:6e:73:ac:e8",
+                    "name": "enp4s0f0"
+                }],
+                "management_interface": "enp4s0f0"
+            },
+            "parameters": {},
+            "password": "c0ntrail123",
+            "roles": [
+                "contrail-controller",
+                "contrail-analytics",
+                "contrail-analyticsdb",
+                "contrail-vcenter-plugin"
+            ]
+        },
+        {
+            "cluster_id": "vcenter_cluster",
+            "contrail": {},
+            "domain": "local.lab",
+            "host_name": "bdlabesx04-vr",
+            "id": "bdlabesx04-vr",
+            "network": {
+                "interfaces": [{
+                    "default_gateway": "10.26.254.1",
+                    "dhcp": true,
+                    "ip_address": "10.26.254.154/24",
+                    "mac_address": "a8:99:69:35:2d:aa",
+                    "name": "eth0"
+                }],
+                "management_interface": "eth0"
+            },
+            "parameters": {
+                "esxi_parameters": {
+                    "cluster": "Lab",
+                    "contrail_vm": {
+                        "mgmt_pg": "mgmt-pg",
+                        "vmdk": "/root/images/ContrailVM1604-ovf.tar"
+                    },
+                    "datacenter": "Lab",
+                    "datastore": "datastore1",
+                    "name": "10.26.254.151",
+                    "password": "<password>",
+                    "username": "root",
+                    "validate_certs": false,
+                    "vcenter_server": "10.26.254.227"
+                }
+            },
+            "password": "c0ntrail123",
+            "roles": [
+                "contrail-compute"
+            ]
+        },
+        {
+            "cluster_id": "vcenter_cluster",
+            "contrail": {},
+            "domain": "local.net",
+            "host_name": "bdlabesx05-vr",
+            "id": "bdlabesx05-vr",
+            "network": {
+                "interfaces": [{
+                    "default_gateway": "10.26.254.1",
+                    "dhcp": true,
+                    "ip_address": "10.26.254.155/24",
+                    "mac_address": "a8:99:69:35:2d:bb",
+                    "name": "eth0"
+                }],
+                "management_interface": "eth0"
+            },
+            "parameters": {
+                "esxi_parameters": {
+                    "cluster": "Lab",
+                    "contrail_vm": {
+                        "mgmt_pg": "mgmt-pg",
+                        "vmdk": "/root/images/ContrailVM1604-ovf.tar"
+                    },
+                    "datacenter": "Lab",
+                    "datastore": "datastore2",
+                    "name": "10.26.254.152",
+                    "password": "Dellsvcs1Dellsvcs1",
+                    "username": "root",
+                    "validate_certs": false,
+                    "vcenter_server": "10.26.254.227"
+                }
+            },
+            "password": "c0ntrail123",
+            "roles": [
+                "contrail-compute"
+            ]
+        },
+        {
+            "cluster_id": "vcenter_cluster",
+            "contrail": {},
+            "domain": "local.net",
+            "host_name": "bdlabesx06-vr",
+            "id": "bdlabesx06-vr",
+            "network": {
+                "interfaces": [{
+                    "default_gateway": "10.26.254.1",
+                    "dhcp": true,
+                    "ip_address": "10.26.254.156/24",
+                    "mac_address": "a8:99:69:35:2d:cc",
+                    "name": "eth0"
+                }],
+                "management_interface": "eth0"
+            },
+            "parameters": {
+                "esxi_parameters": {
+                    "cluster": "Lab",
+                    "contrail_vm": {
+                        "mgmt_pg": "mgmt-pg",
+                        "vmdk": "/root/images/ContrailVM1604-ovf.tar"
+                    },
+                    "datacenter": "Lab",
+                    "datastore": "datastore3",
+                    "name": "10.26.254.153",
+                    "password": "<password>",
+                    "username": "root",
+                    "validate_certs": false,
+                    "vcenter_server": "10.26.254.227"
+                }
+            },
+            "password": "c0ntrail123",
+            "roles": [
+                "contrail-compute"
+            ]
+        }
+    ],
+    "image": [{
+        "category": "package",
+        "id": "contrail_vc_orch",
+        "path": "/root/images/contrail-vcenter-docker_4.1.1.0-12_xenial.tgz",
+        "type": "contrail-ubuntu-package",
+        "parameters": {
+            "openstack_sku": "vcenter"
+        },
+        "version": "4.1.1.0-12"
+    }]
+}
