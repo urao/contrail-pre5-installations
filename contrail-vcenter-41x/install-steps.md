@@ -1,13 +1,13 @@
-## Steps to deploy non-HA enivornment 
-## Running 1 Contrail Controllers + 3 ESXi compute + 1 Vcenter + no separate ctrl/data 
+## Steps to deploy non-HA Contrail + vCenter only 
 
+0. Ssetup running 1 Contrail Controllers + 3 ESXi compute + 1 Vcenter with no separate ctrl/data interfaces
 1. Bring up 1 Server running Ubuntu 16.04.2 LTS Xenial OS with 12 vCPU, 128 GB of RAM and 500 GB of disk
 2. Bring up vCenter running 6.0, ESXI compute nodes running 6.0, make sure hostname does not have dashes and special characters
 3. On ESXI server, make sure single uplink vswitch0, no LACP or MPI/O, 300GB storage and 128GB RAM
-4. Infrastructure, 
-4.1 IP reachability between contrail controller and vcenter and no Firewall between them
-4.2 Enable DHCP Option 12 (Hostname) on the DHCP server, to assign hostnames for Contrail vRouter VMs
-4.3 Have internet access 
+4. Infrastructure requirements 
+	1. IP reachability between contrail controller and vcenter and no Firewall between them
+        2. Enable DHCP Option 12 (Hostname) on the DHCP server, to assign hostnames for Contrail vRouter VMs
+        3. Have internet access 
 5. Create directories 
 ```
 mkdir -p $HOME/images
@@ -38,6 +38,10 @@ tail -f /var/log/contrail-server-manager/debug.log
 ```
 14. Connect to vCenter Contrail UI to create Virtual Networks, otherwise use regular Contrail UI
 ```
-vCenter Contrail GUI: https://<Controller_IP>:8143/vcenter  credentials: administrator@vsphere.local/<vcenter_password>
-Contrail GUI: https://<Controller_IP>:8143  credentials: admin/c0ntrail123
+vCenter Contrail GUI: https://<Controller_IP>:8143/vcenter  
+credentials: administrator@vsphere.local/<vcenter_password>
+```
+```
+Contrail GUI: https://<Controller_IP>:8143  
+credentials: admin/c0ntrail123
 ```
