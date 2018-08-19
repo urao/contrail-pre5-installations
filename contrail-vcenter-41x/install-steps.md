@@ -36,7 +36,7 @@ watch /opt/contrail/contrail_server_manager/provision_status.sh
 ```
 tail -f /var/log/contrail-server-manager/debug.log
 ```
-14. Connect to vCenter Contrail UI to create Virtual Networks, otherwise use regular Contrail UI
+14. Connect to vCenter Contrail GUI to create Virtual Networks, otherwise use regular Contrail GUI
 ```
 vCenter Contrail GUI: https://<Controller_IP>:8143/vcenter  
 credentials: administrator@vsphere.local/<vcenter_password>
