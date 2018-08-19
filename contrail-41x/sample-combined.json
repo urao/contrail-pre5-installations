@@ -1,0 +1,124 @@
+{
+    "cluster": [
+        {
+            "id": "newton",
+            "parameters": {
+                "domain": "testlab.net",
+                "gateway": "10.10.1.126",
+                "provision": {
+                    "contrail_4": {
+                        "kernel_upgrade": false
+                    },
+                    "openstack": {
+                        "keystone": {
+                            "admin_password": "contrail123"
+                        },
+                        "openstack_manage_amqp": true
+                    }
+                },
+                "subnet_mask": "255.255.255.128"
+            }
+        }
+    ],
+    "image": [
+        {
+            "category": "package",
+            "id": "image_contrail_cloud_docker_4_1_0_0_8_newton_xenial",
+            "parameters": {
+                "contrail-container-package": true
+            },
+            "path": "/root/images/contrail-cloud-docker_4.1.0.0-8-newton_xenial.tgz",
+            "type": "contrail-ubuntu-package",
+            "version": "4.1.0.0-8-newton_xenial"
+        }
+    ],
+    "server": [
+        {
+            "cluster_id": "newton",
+            "domain": "testlab.net",
+            "id": "node3",
+            "ipmi_address": "",
+            "network": {
+                "interfaces": [
+                    {
+                        "dhcp": false,
+                        "ip_address": "10.10.1.85/25",
+                        "mac_address": "c4:54:44:43:a1:af",
+                        "default_gateway": "10.10.1.126",
+                        "name": "eno1"
+                    },
+                    {
+                        "dhcp": false,
+                        "name": "bond0",
+                        "ip_address": "172.16.80.5/24",
+                        "mac_address": "90:e2:ba:50:ac:30"
+                    }
+                ],
+                "management_interface": "eno1",
+                "provisioning": "kickstart"
+            },
+            "parameters": {
+                "provision": {
+                    "contrail": {
+                        "control_data_interface": "bond0",
+                        "kernel_upgrade": false
+                    },
+                    "contrail_4": {
+                        "kernel_upgrade": false,
+                        "control_data_interface": "bond0",
+                        "ctrl_data_network": "172.16.80.0/24"
+                    }
+                }
+            },
+            "password": "contrail123",
+            "roles": [
+                "contrail-compute"
+            ]
+        },
+        {
+            "cluster_id": "newton",
+            "domain": "testlab.net",
+            "id": "node2",
+            "ipmi_address": "",
+            "network": {
+                "interfaces": [
+                    {
+                        "dhcp": false,
+                        "ip_address": "10.10.1.84/25",
+                        "default_gateway": "10.10.1.126",
+                        "mac_address": "c4:54:44:44:d6:f6",
+                        "name": "eno1"
+                    },
+                    {
+                        "dhcp": false,
+                        "name": "bond0",
+                        "ip_address": "172.16.80.4/24",
+                        "mac_address": "90:e2:ba:50:b8:ac"
+                    }
+                ],
+                "management_interface": "eno1",
+                "provisioning": "kickstart"
+            },
+            "parameters": {
+                "provision": {
+                    "contrail": {
+                        "control_data_interface": "bond0",
+                        "kernel_upgrade": false
+                    },
+                    "contrail_4": {
+                        "kernel_upgrade": false,
+                        "control_data_interface": "bond0",
+                        "ctrl_data_network": "172.16.80.0/24"
+                    }
+                }
+            },
+            "password": "contrail123",
+            "roles": [
+                "contrail-analytics",
+                "contrail-controller",
+                "openstack",
+                "contrail-analyticsdb"
+            ]
+        }
+    ]
+}
