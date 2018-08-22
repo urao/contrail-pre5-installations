@@ -1,0 +1,14 @@
+{
+    "image": [
+        {
+            "category": "package",
+            "id": "image_contrail_cloud_docker_4_1_1_0_12_newton_xenial",
+            "parameters": {
+                "contrail-container-package": true
+            },
+            "path": "/root/images/contrail-cloud-docker_4.1.1.0-12-newton_xenial.tgz",
+            "type": "contrail-ubuntu-package",
+            "version": "4.1.1.0-12-newton_xenial"
+        }
+    ]
+}
