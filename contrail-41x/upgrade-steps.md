@@ -22,5 +22,7 @@ tail -f /var/log/contrail-server-manager/debug.log
 10. Useful commands
 ```
 server-manager delete image --image_id <image_id>
+server-manager delete image --server_id <server_id>
+server-manager delete image --cluster_id <cluster_id>
 service contrail-server-manager status
 ```
