@@ -19,3 +19,8 @@ watch /opt/contrail/contrail_server_manager/provision_status.sh
 ```
 tail -f /var/log/contrail-server-manager/debug.log
 ```
+10. Useful commands
+```
+server-manager delete image --image_id <image_id>
+service contrail-server-manager status
+```
